@@ -59,21 +59,16 @@ jobs:
         git add charts/jellyfin/Chart.yaml
         git commit -m "chore(jellyfin): Bump chart version to ${{ steps.bump_version.outputs.new_version }} and set appVersion to ${{ github.event.inputs.jellyfin_version }}"
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-
     - name: Create Git tag
       id: create_tag
       run: |
         new_version="${{ steps.bump_version.outputs.new_version }}"
         git tag "$new_version"
         echo "Tag created: $new_version"
-        
-    - name: Push changes
+
+    - name: Push changes and tag
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
         tags: true
