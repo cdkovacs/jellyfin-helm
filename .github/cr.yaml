@@ -1,2 +1,2 @@
-owner: jellyfin
+owner: cdkovacs
 release-name-template: "{{ .Name }}-{{ .Version }}"
