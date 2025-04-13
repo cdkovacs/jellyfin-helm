@@ -90,6 +90,14 @@ service:
   # externalTrafficPolicy: Cluster
   # -- NodePort for the service (if applicable).
   # nodePort: 
+  # -- Additional ports to expose in the service
+  extraPorts: []
+  # Example configuration:
+  # - name: https
+  #   port: 443
+  #   targetPort: https
+  #   protocol: TCP
+  #   nodePort: 30443
 
 # -- Ingress configuration. See: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -235,3 +243,41 @@ extraInitContainers: []
   
 # -- additional sidecar containers to run inside the pod.
 extraContainers: []
+
+# -- Additional charts to be included with Jellyfin
+extraCharts:
+  # -- Enable or disable extra charts
+  enabled: false
+  # -- List of additional charts to include
+  charts: []
+  # Example configuration:
+  # - name: nginx-ingress
+  #   repository: https://kubernetes.github.io/ingress-nginx
+  #   version: 4.0.13
+  #   values:
+  #     controller:
+  #       service:
+  #         type: LoadBalancer
+  # - name: cert-manager
+  #   repository: https://charts.jetstack.io
+  #   version: v1.8.0
+  #   values:
+  #     installCRDs: true
+
+# -- Additional Kubernetes resources to be included with Jellyfin
+extraTemplates: []
+# Example configuration:
+# - apiVersion: v1
+#   kind: ConfigMap
+#   metadata:
+#     name: custom-config
+#   data:
+#     custom.conf: |
+#       # Custom configuration
+# - apiVersion: v1
+#   kind: Secret
+#   metadata:
+#     name: custom-secret
+#   type: Opaque
+#   data:
+#     secret-key: base64-encoded-value

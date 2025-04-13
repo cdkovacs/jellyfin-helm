@@ -1,0 +1,6 @@
+{{- if .Values.extraTemplates }}
+{{- range .Values.extraTemplates }}
+---
+{{ . | toYaml | indent 0 }}
+{{- end }}
+{{- end }} 
