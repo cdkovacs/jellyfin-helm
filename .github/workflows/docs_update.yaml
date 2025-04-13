@@ -1,10 +1,11 @@
 name: Docs Update
 
 on:
-  push:
-    branches:
-      - main
-
+  workflow_run:
+    workflows: ["Bump Helm Chart Version"]
+    types:
+      - completed
+      
 permissions:
   contents: write
   packages: write
