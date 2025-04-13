@@ -189,6 +189,8 @@ persistence:
     storageClass: ''
     ## -- Use an existing PVC for this mount
     # existingClaim: ''
+    ## -- Custom mount path
+    # mountPath: /config
   media:
     # -- set to false to use emptyDir
     enabled: true
@@ -200,6 +202,8 @@ persistence:
     storageClass: ''
     ## -- Use an existing PVC for this mount
     # existingClaim: ''
+    ## -- Custom mount path
+    # mountPath: /media
 
 # -- Configuration for metrics collection and monitoring
 metrics:
