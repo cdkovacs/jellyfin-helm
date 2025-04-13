@@ -47,7 +47,8 @@ jobs:
 
         # Update the Chart.yaml with the new version and appVersion
         sed -i "s/^version:.*/version: $new_version/" charts/jellyfin/Chart.yaml
-        sed -i "s/^appVersion:.*/appVersion: $jellyfin_version/" charts/jellyfin/Chart.yaml
+        # leave appVersion alone because that is tied to the docker image version
+        # sed -i "s/^appVersion:.*/appVersion: $jellyfin_version/" charts/jellyfin/Chart.yaml
 
         # Output the new chart version for further use
         echo "new_version=$new_version" >> $GITHUB_OUTPUT
