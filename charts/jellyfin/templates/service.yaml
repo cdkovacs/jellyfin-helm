@@ -47,14 +47,14 @@ spec:
   externalTrafficPolicy: {{ . }}
   {{- end }}
   ports:
-    - name: {{ .Values.service.name | default "http" }}
+    - name: {{ .Values.service.name | default "http-tcp" }}
       port: {{ .Values.service.port }}
       protocol: TCP
       targetPort: http
       {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{ .Values.service.nodePort }}
       {{- end }}
-    - name: {{ .Values.service.name | default "http" }}
+    - name: {{ .Values.service.name | default "http-udp" }}
       port: {{ .Values.service.port }}
       protocol: UDP
       targetPort: http
