@@ -1,6 +1,6 @@
 # jellyfin
 
-![Version: 2.12.0](https://img.shields.io/badge/Version-2.12.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2025040803](https://img.shields.io/badge/AppVersion-2025040803-informational?style=flat-square)
+![Version: 2.13.0](https://img.shields.io/badge/Version-2.13.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2025040803](https://img.shields.io/badge/AppVersion-2025040803-informational?style=flat-square)
 
 A Helm chart for Jellyfin Media Server
 
@@ -54,7 +54,7 @@ helm install my-jellyfin jellyfin/jellyfin -f values.yaml
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | deploymentAnnotations | object | `{}` | Annotations to add to the deployment. |
-| deploymentStrategy | object | `{"type":"RollingUpdate"}` | Deployment strategy configuration. See `kubectl explain deployment.spec.strategy`. |
+| deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy configuration. See `kubectl explain deployment.spec.strategy`. |
 | extraCharts | object | `{"charts":[],"enabled":false}` | Additional charts to be included with Jellyfin |
 | extraCharts.charts | list | `[]` | List of additional charts to include |
 | extraCharts.enabled | bool | `false` | Enable or disable extra charts |
