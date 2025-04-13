@@ -1,6 +1,6 @@
 # jellyfin
 
-![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.10.6](https://img.shields.io/badge/AppVersion-10.10.6-informational?style=flat-square)
+![Version: 2.4.0](https://img.shields.io/badge/Version-2.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Jellyfin Media Server
 
@@ -55,8 +55,12 @@ helm install my-jellyfin jellyfin/jellyfin -f values.yaml
 | affinity | object | `{}` | Affinity rules for pod scheduling. |
 | deploymentAnnotations | object | `{}` | Annotations to add to the deployment. |
 | deploymentStrategy | object | `{"type":"RollingUpdate"}` | Deployment strategy configuration. See `kubectl explain deployment.spec.strategy`. |
+| extraCharts | object | `{"charts":[],"enabled":false}` | Additional charts to be included with Jellyfin |
+| extraCharts.charts | list | `[]` | List of additional charts to include |
+| extraCharts.enabled | bool | `false` | Enable or disable extra charts |
 | extraContainers | list | `[]` | additional sidecar containers to run inside the pod. |
 | extraInitContainers | list | `[]` | additional init containers to run inside the pod. |
+| extraTemplates | list | `[]` | Additional Kubernetes resources to be included with Jellyfin |
 | fullnameOverride | string | `""` | Override the default full name of the chart. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy (Always, IfNotPresent, or Never). |
 | image.repository | string | `"docker.io/jellyfin/jellyfin"` | Container image repository for Jellyfin. |
@@ -105,6 +109,7 @@ helm install my-jellyfin jellyfin/jellyfin -f values.yaml
 | runtimeClassName | string | `""` | Define a custom runtimeClassName for the pod. |
 | securityContext | object | `{}` | Security context for the container. |
 | service.annotations | object | `{}` | Annotations for the service. |
+| service.extraPorts | list | `[]` | Additional ports to expose in the service |
 | service.ipFamilies | list | `[]` | Supported IP families (IPv4, IPv6). |
 | service.ipFamilyPolicy | string | `""` | Configure dual-stack IP family policy. See: https://kubernetes.io/docs/concepts/services-networking/dual-stack/ |
 | service.labels | object | `{}` | Labels for the service. |
