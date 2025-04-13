@@ -58,7 +58,7 @@ priorityClassName: ""
 
 # -- Deployment strategy configuration. See `kubectl explain deployment.spec.strategy`.
 deploymentStrategy:
-  type: RollingUpdate
+  type: Recreate
 
 # -- Annotations to add to the deployment.
 deploymentAnnotations: {}
